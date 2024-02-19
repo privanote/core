@@ -18,6 +18,10 @@
   "name": "core",
   "module": "index.ts",
   "type": "module",
+  "private": "true",
+  "workspaces": [
+    "packages/*"
+  ],
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
