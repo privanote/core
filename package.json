@@ -1,4 +1,23 @@
 {
+  "name": "core",
+  "module": "index.ts",
+  "type": "module",
+  "private": "true",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "prepare": "husky",
+    "postinstall": "find . -type f -name '*.sh' -exec chmod +x {} +",
+    "add-bun-pkg": "./scripts/add-bun-pkg.sh",
+    "add-vite-pkg": "./scripts/add-vite-pkg.sh",
+    "pkg": "./scripts/run-pkg-script.sh",
+    "pkg-all": "./scripts/run-all-pkg-script.sh",
+    "lint": "eslint . --ext .ts"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
   "devDependencies": {
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-conventional": "^18.6.2",
@@ -15,21 +34,7 @@
     "prettier": "^3.2.5",
     "typescript": "^5.3.3"
   },
-  "name": "core",
-  "module": "index.ts",
-  "type": "module",
-  "private": "true",
-  "workspaces": [
-    "packages/*"
-  ],
   "peerDependencies": {
     "typescript": "^5.0.0"
-  },
-  "scripts": {
-    "prepare": "husky",
-    "lint": "eslint . --ext .ts"
-  },
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
   }
 }
