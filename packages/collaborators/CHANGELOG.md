@@ -1,5 +1,11 @@
 # @privanote/collaborators
 
+## 0.0.3
+
+### Patch Changes
+
+- [#18](https://github.com/privanote/core/pull/18) [`8e6bdb5`](https://github.com/privanote/core/commit/8e6bdb569931231cd926897d8739b4f2ef98aaf1) Thanks [@thejasonxie](https://github.com/thejasonxie)! - Fixing ci workflow
+
 ## 0.0.2
 
 ### Patch Changes
