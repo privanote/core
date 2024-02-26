@@ -5,6 +5,9 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "publishConfig": {
+    "@privanote:registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "tsup index.ts --format esm,cjs --dts",
     "release": "bun run build && bunx changeset publish"
