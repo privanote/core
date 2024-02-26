@@ -23,6 +23,8 @@ jobs:
           cat << EOF > "$HOME/.npmrc"
             //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
           EOF
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish
         uses: changesets/action@v1
         with:
