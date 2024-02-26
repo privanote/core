@@ -1,5 +1,11 @@
 # @privanote/collaborators
 
+## 0.0.6
+
+### Patch Changes
+
+- [#25](https://github.com/privanote/core/pull/25) [`b7bd4cc`](https://github.com/privanote/core/commit/b7bd4cc205f541bfe6197e200c7b61dfd924ee79) Thanks [@thejasonxie](https://github.com/thejasonxie)! - Update collaborators readme
+
 ## 0.0.5
 
 ### Patch Changes
