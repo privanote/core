@@ -6,8 +6,7 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "build": "tsup index.ts --format esm,cjs --dts",
-    "release": "bun run build && bunx changeset publish"
+    "build": "tsup index.ts --format esm,cjs --dts"
   },
   "devDependencies": {
     "@types/bun": "latest",

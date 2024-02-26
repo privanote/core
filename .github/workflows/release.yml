@@ -16,6 +16,8 @@ jobs:
         uses: oven-sh/setup-bun@v1
       - name: Install dependencies
         run: bun install
+      - name: Build packages
+        run: bun run pkg-all build
       - name: Setup NPM Github Package Registry
         run: |
           cat << EOF > "$HOME/.npmrc"
@@ -26,6 +28,6 @@ jobs:
         with:
           commit: "chore: update versions"
           title: "chore: update versions"
-          publish: bun run pkg-all release
+          publish: bunx changeset publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
