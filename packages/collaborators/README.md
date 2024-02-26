@@ -1,15 +1,28 @@
 # collaborators
 
-To install dependencies:
+A package to get a list of collaborators for a GitHub repository.
 
-```bash
-bun install
+## Prerequisites
+
+A Github token with repo scope is required to access the GitHub API.
+
+## Installation
+
+refer to https://github.com/privanote/core README.md for installation instructions.
+
+## Usage
+
+```js
+import { getCollaborators } from '@privanote/collaborators';
+
+try {
+  const collaborators = await getCollaborators({
+    owner: 'privanote',
+    repo: 'privanote',
+    token: process.env.GITHUB_TOKEN,
+  });
+  console.log(collaborators);
+} catch (error) {
+  console.error(error);
+}
 ```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.0.26. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
