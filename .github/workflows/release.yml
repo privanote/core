@@ -1,4 +1,4 @@
-name: "CI"
+name: "Release"
 on:
   push:
     branches: [main]
@@ -6,20 +6,6 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  test:
-    name: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Install bun
-        uses: oven-sh/setup-bun@v1
-      - name: Install dependencies
-        run: bun install
-      - name: Run tests
-        run: bun test
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   release:
     name: release
     runs-on: ubuntu-latest

@@ -94,4 +94,4 @@ cp env.example .env
 
 Fill in the values in the .env file.
 
-Ideally, `GITHUB_TOKEN` should have same permissions as CI:
+Ideally, `GITHUB_TOKEN_TEST` should have same permissions as testing CI:

@@ -13,7 +13,7 @@ describe('collaborators', () => {
       const collaborator = (await getCollaborators({
         owner: 'privanote',
         repo: 'privanote',
-        token: process.env.GITHUB_TOKEN_REPO as string,
+        token: process.env.GITHUB_TOKEN_TEST as string,
       })) as GetCollaboratorsResponse[];
 
       const result = collaborator
@@ -37,7 +37,7 @@ describe('collaborators', () => {
       const collaborator = (await getCollaborators({
         owner: 'privanote',
         repo: 'asdfasfdasdfsadfsasdfasdf',
-        token: process.env.GITHUB_TOKEN_REPO as string,
+        token: process.env.GITHUB_TOKEN_TEST as string,
       })) as GetCollaboratorsResponse[];
 
       const result =

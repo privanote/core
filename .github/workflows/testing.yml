@@ -1,0 +1,22 @@
+name: "Testing"
+on:
+  pull_request:
+    branches: [main]
+
+permissions: read-all
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install bun
+        uses: oven-sh/setup-bun@v1
+      - name: Install dependencies
+        run: bun install
+      - name: Run tests
+        run: bun test
+        env:
+          GITHUB_TOKEN_TEST: ${{ secrets.GITHUB_TOKEN }}
