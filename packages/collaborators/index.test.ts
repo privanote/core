@@ -27,7 +27,7 @@ describe('collaborators', () => {
       if (tokenIssue) {
         expect().fail('Invalid token provided');
       } else {
-        expect().fail('This should not be reached');
+        expect().fail('This should not be reached: ' + error);
       }
     }
   });
@@ -51,7 +51,7 @@ describe('collaborators', () => {
       if (tokenIssue) {
         expect().fail('Invalid token provided');
       } else {
-        expect().fail('This should not be reached');
+        expect().fail('This should not be reached: ' + error);
       }
     }
   });
