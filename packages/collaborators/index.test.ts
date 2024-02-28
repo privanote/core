@@ -8,7 +8,7 @@ import {
 } from './index';
 
 describe('collaborators', () => {
-  test('valid repo', async () => {
+  test('valid', async () => {
     try {
       const collaborator = (await getCollaborators({
         owner: 'privanote',
@@ -16,10 +16,16 @@ describe('collaborators', () => {
         token: process.env.GITHUB_TOKEN_TEST as string,
       })) as GetCollaboratorsResponse[];
 
-      const result = collaborator
-        .map((c) => getCollaboratorsResponseSchema.safeParse(c).success)
-        .includes(false);
-      expect(result).toBe(false);
+      if (Array.isArray(collaborator)) {
+        const result = collaborator
+          .map((c) => getCollaboratorsResponseSchema.safeParse(c).success)
+          .includes(false);
+        expect(result).toBe(false);
+      } else {
+        expect().fail(
+          'This should not be reached: ' + JSON.stringify(collaborator),
+        );
+      }
     } catch (error) {
       const tokenIssue =
         error instanceof Error ? error.message.includes('token') : false;
@@ -32,7 +38,7 @@ describe('collaborators', () => {
     }
   });
 
-  test('invalid repo', async () => {
+  test('invalid repo or token', async () => {
     try {
       const collaborator = (await getCollaborators({
         owner: 'privanote',
