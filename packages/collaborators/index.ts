@@ -6,7 +6,7 @@ const getCollaboratorsPropsSchema = z.object({
   token: z.string(),
 });
 
-const getCollaboratorsResponseSchema = z.object({
+export const getCollaboratorsResponseSchema = z.object({
   login: z.string(),
   id: z.number(),
   node_id: z.string(),
@@ -35,8 +35,18 @@ const getCollaboratorsResponseSchema = z.object({
   role_name: z.string(),
 });
 
-type GetCollaboratorsResponse = z.infer<typeof getCollaboratorsResponseSchema>;
-type GetCollaboratorsProps = z.infer<typeof getCollaboratorsPropsSchema>;
+export const getCollaboratorsResponseInvalidSchema = z.object({
+  message: z.string(),
+  documentation_url: z.string(),
+});
+
+export type GetCollaboratorsResponse = z.infer<
+  typeof getCollaboratorsResponseSchema
+>;
+export type GetCollaboratorsResponseInvalid = z.infer<
+  typeof getCollaboratorsResponseInvalidSchema
+>;
+export type GetCollaboratorsProps = z.infer<typeof getCollaboratorsPropsSchema>;
 
 /**
  * Get the list of collaborators for a repository
@@ -63,13 +73,15 @@ export const getCollaborators = async ({
     );
     const data = await response.json();
     if (!response.ok) {
-      return data as { message: string; documentation_url: string };
+      return data as GetCollaboratorsResponseInvalid;
     } else {
       return data as GetCollaboratorsResponse[];
     }
   } catch (error: unknown) {
     if (error instanceof Error) {
       throw new Error(`Error: ${error.message}`);
+    } else {
+      throw new Error('An unknown error occurred');
     }
   }
 };

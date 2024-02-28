@@ -83,3 +83,15 @@ bun run pkg <pkg-name> <script-name>
 # all packages
 bun run pkg-all <script-name>
 ```
+
+## Environement Variables
+
+Depending on your development activity, you may need to set some environment variables for the packages to work properly or to run tests.
+
+```bash
+cp env.example .env
+```
+
+Fill in the values in the .env file.
+
+Ideally, `GITHUB_TOKEN` should have same permissions as CI:
